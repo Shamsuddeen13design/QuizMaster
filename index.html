@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>QuizMaster</title>
+<link href="style.css" rel="stylesheet"/></head>
+<body>
+<div class="shell">
+ 
+  <header>
+    <div class="logo">Quiz<span>Master</span></div>
+    <div class="tagline">Test Your Knowledge</div>
+  </header>
+ 
+  <!-- ── SCREEN: Start ──────────────────────────────────────── -->
+  <div id="screen-start" class="card start-screen">
+    <h2>Ready to Play?</h2>
+    <p>10 hand-picked questions across science, tech,<br>history &amp; pop culture. No time limit — think carefully.</p>
+    <div class="stats-row">
+      <div class="stat"><div class="n">10</div><div class="t">Questions</div></div>
+      <div class="stat"><div class="n">4</div><div class="t">Options Each</div></div>
+      <div class="stat"><div class="n">∞</div><div class="t">Retries</div></div>
+    </div>
+    <button class="btn-start" onclick="startQuiz()">START QUIZ</button>
+  </div>
+ 
+  <!-- ── SCREEN: Question ───────────────────────────────────── -->
+  <div id="screen-quiz" style="display:none;">
+    <div class="progress-wrap">
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="progress-label" id="progress-label">0 / 10</div>
+    </div>
+    <div class="live-score"><div class="score-pill" id="live-score">Score: 0</div></div>
+    <div class="card" id="q-card">
+      <div class="q-meta">
+        <div class="q-badge" id="q-number">Q1</div>
+        <div class="q-category" id="q-category"></div>
+      </div>
+      <div class="q-stem" id="q-stem"></div>
+      <div class="options" id="options"></div>
+      <div class="feedback" id="feedback">
+        <span class="feedback-icon" id="feedback-icon"></span>
+        <span id="feedback-text"></span>
+      </div>
+      <button class="btn-next" id="btn-next" onclick="nextQuestion()">NEXT QUESTION →</button>
+    </div>
+  </div>
+ 
+  <!-- ── SCREEN: Results ────────────────────────────────────── -->
+  <div id="screen-result" style="display:none;">
+    <div class="card score-card">
+      <div class="score-ring" id="score-ring">
+        <svg viewBox="0 0 170 170">
+          <circle class="ring-bg" cx="85" cy="85" r="78"/>
+          <circle class="ring-fill" id="ring-fill" cx="85" cy="85" r="78"
+            stroke-dasharray="490"
+            stroke-dashoffset="490"/>
+        </svg>
+        <div class="score-pct" id="score-pct">0%</div>
+        <div class="score-label">Score</div>
+      </div>
+      <div class="result-title" id="result-title"></div>
+      <div class="result-sub"  id="result-sub"></div>
+      <div class="score-breakdown">
+        <div class="breakdown-item c">
+          <div class="val" id="result-correct">0</div>
+          <div class="key">Correct</div>
+        </div>
+        <div class="breakdown-item">
+          <div class="val" style="color:var(--text)" id="result-total">0</div>
+          <div class="key">Total</div>
+        </div>
+        <div class="breakdown-item w">
+          <div class="val" id="result-wrong">0</div>
+          <div class="key">Wrong</div>
+        </div>
+      </div>
+      <button class="btn-restart" onclick="restartQuiz()">PLAY AGAIN</button>
+    </div>
+  </div>
+ 
+</div>
+<script src="script.js"></script>
+</body>
+</html>
